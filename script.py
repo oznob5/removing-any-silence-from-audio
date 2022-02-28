@@ -1,5 +1,6 @@
 from moviepy.editor import *
 import sys
+from app_class import *
 
 def get_silences(clip, silence_volume_threshold):
     silences = []  # (time) list of lists when silence is detected
@@ -67,4 +68,3 @@ remove_silences_from_clip(clip, silence_volume_threshold, silence_length_thresho
 
 clip.close()
 audio.close()
-
