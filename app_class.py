@@ -1,11 +1,14 @@
 from tkinter import *
 from tkinter import ttk
 from tkinter import filedialog
-import script
+import os
 
 gui = Tk()
-gui.geometry("750x250")
+gui.geometry("450x250")
 gui.title("Application")
+
+def run():
+    os.system(f'python3 script.py {folder_path.get()} {var1.get()} {var2.get()} {var3.get()}')
 
 def get_folder_path():
    folder_selected = filedialog.askopenfilename(title="select file",
@@ -34,15 +37,9 @@ ent2.grid(row=6, column=1)
 ent3.grid(row=7, column=1)
 ent4.grid(row=8, column=1)
 b1 = ttk.Button(gui, text="Choose file",command=get_folder_path)
-
 b1.grid(row=5,column=2)
 
-file = folder_path.get()
-volume_threshold = var1.get()
-length_threshold = var2.get()
-length_of_buffer = var3.get()
-
-b2 = ttk.Button(gui, text="run program", command=script.remove_silences_from_clip)
-b2.grid(row=6, column=3)
+b2 = ttk.Button(gui, text="run program", command=run)
+b2.grid(row=10, column=1)
 
 gui.mainloop()
